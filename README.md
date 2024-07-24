@@ -22,7 +22,6 @@
    -- express                : Server 
    -- @sendgrid/mail         : To send Email and Webhook configuration
    -- bullmq                 : Queue based process
-   -- ioredis                : Act like queue server
    -- mongoose               : NoSql Database
    -- socket.io              : Client side request emitter
    -- joi                    : Validating the request
