@@ -1,0 +1,54 @@
+openapi: 3.0.0
+
+info:
+  title: Email Notification
+
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT   
+
+servers:
+  - url: http://localhost:3000/
+    description: Local server
+  - url: https://baboon-evolving-lionfish.ngrok-free.app/
+    description: Ngrok server
+
+paths:               
+  /api/sendEmail:
+    post:      
+      tags:
+       - "EMAIL"
+      description: ""
+      operationId: /api/sendEmail     
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                toEmail:
+                  type: string
+                subject:
+                  type: string
+                body:
+                  type: string
+              required:   
+                - toEmail
+                - subject
+                - body
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request Error
+        "401":
+          description: Unauthorized Error
+  
+components:
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid  
